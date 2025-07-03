@@ -3,6 +3,8 @@ dotenv.config();
 
 import { DataSource } from 'typeorm';
 import { User } from './entities/user.entity';
+import { Chat } from './entities/chat.entity';
+import { ChatMember } from './entities/chat-member.entity';
 
 export default new DataSource({
   type: 'postgres',
@@ -13,5 +15,5 @@ export default new DataSource({
   database: process.env.POSTGRES_DB,
   migrations: ['src/migrations/**/*.ts'],
   synchronize: false,
-  entities: [User],
+  entities: [User, Chat, ChatMember],
 });

@@ -4,9 +4,11 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { ChatMember } from './chat-member.entity';
 
 @Entity()
 export class User {
@@ -40,6 +42,9 @@ export class User {
     type: 'text',
   })
   password: string;
+
+  @OneToMany(() => ChatMember, (chatMember) => chatMember.user)
+  chatMembers: ChatMember[];
 
   @CreateDateColumn()
   createdAt: Date;

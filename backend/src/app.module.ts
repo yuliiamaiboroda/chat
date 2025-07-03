@@ -6,6 +6,8 @@ import { PostgresProvider } from './providers/postgres.provider';
 import { ConfigProvider } from './providers/config.provider';
 import { AuthModule } from './modules/auth/auth.module';
 import { UserModule } from './modules/user/user.module';
+import { ChatModule } from './modules/chat/chat.module';
+import { ChatMemberModule } from './modules/chat-member/chat-member.module';
 
 @Module({
   imports: [
@@ -15,6 +17,8 @@ import { UserModule } from './modules/user/user.module';
     AuthModule,
     UserModule,
     CacheModule.register({ isGlobal: true }),
+    ChatModule,
+    ChatMemberModule,
   ],
   controllers: [],
   providers: [],
